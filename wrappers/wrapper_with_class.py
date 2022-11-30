@@ -1,5 +1,13 @@
 from base_class.human import Human
-from age_decorator import throw_age
+
+def throw_age(method):
+    """декоратор уменьшает возраст для метода класса."""
+    def wrapper(self):
+        new_age = self.age
+        new_age -= 3
+        return new_age
+    return wrapper
+
 
 class Woman(Human):
     """Класс женщины."""
