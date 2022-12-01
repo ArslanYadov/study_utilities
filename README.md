@@ -7,4 +7,4 @@
 - [respone status code decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/check_status.py)
 - [logging decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/logit_decorator.py)
 ### Конвертеры
-- [convert to pdf](https://github.com/ArslanYadov/utilities/blob/main/convert2/pdf/html2pdf.py) [via pdfkit](https://github.com/JazzCore/python-pdfkit)
+- [convert to pdf](https://github.com/ArslanYadov/utilities/blob/main/convert2/pdf/html2pdf.py) via **[pdfkit]**(https://github.com/JazzCore/python-pdfkit)
