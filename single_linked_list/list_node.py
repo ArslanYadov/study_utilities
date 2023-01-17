@@ -7,7 +7,8 @@ class Node:
 
 class ListNode:
     """Класс односвязного списка."""
-    head = None
+    head: Node | None = None
+    length: int = 0
 
     def __getitem__(self, key: int) -> int:
         """Метод для получения значения по индексу."""
@@ -22,6 +23,10 @@ class ListNode:
             i += 1
 
         return node.val
+
+    def __len__(self) -> int:
+        """Метод отображения количества узлов."""
+        return self.length
 
     def __str__(self) -> str:
         """Метод отображения односвязного списка."""
@@ -38,12 +43,14 @@ class ListNode:
         """Метод добавления нового узла в конец списка."""
         if self.head is None:
             self.head = Node(val)
+            self.length += 1 
             return
 
         node: Node = self.head
         while node.next:
             node = node.next
         node.next = Node(val)
+        self.length += 1 
         return
 
     def insert(self, key: int, val: int) -> None:
@@ -51,6 +58,7 @@ class ListNode:
         if key == 0:
             temp_head = self.head
             self.head = Node(val, next=temp_head)
+            self.length += 1 
             return
 
         i: int = 0
@@ -62,4 +70,5 @@ class ListNode:
             node = node.next
             i += 1
         prev_node.next = Node(val, next=node)
+        self.length += 1 
         return
