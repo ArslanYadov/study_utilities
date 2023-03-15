@@ -3,7 +3,10 @@ class decorator:
     Декоратор дескриптор.
     При декорировании функции или метода класса
     происходит следующий порядок внутренних вызовов:
-        decorator.__get__() -> wrapper.__call__() -> decorator.__call__()
+        1. Для методов классов:
+            decorator.__get__() -> wrapper.__call__() -> decorator.__call__()
+        2. Для функций:
+            decorator.__call__()
     """
 
     def __init__(self, func) -> None:
