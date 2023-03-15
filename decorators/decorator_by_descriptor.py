@@ -16,6 +16,9 @@ class decorator:
         return self.func(*args, **kwargs)
 
     def __get__(self, instance, owner):
+        # def wrapper(*args, **kwargs):
+            # return self(instance, *args, **kwargs)
+        # return wrapper
         return wrapper(self, instance)
 
 
