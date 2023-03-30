@@ -1,10 +1,4 @@
-class Node:
-    """Класс узла для бинарного дерева."""
-
-    def __init__(self, value=0, left=None, right=None) -> None:
-        self.value = value
-        self.left = left
-        self.right = right
+from binary_tree_model import Node
 
 
 def find_max_val(root: Node) -> int:
@@ -17,7 +11,7 @@ def find_max_val(root: Node) -> int:
         самое большое значение из всех вершин дерева.
     """
     if not root:
-        return 0
+        return float('-inf')
     max_val: int = root.value
     lval: int = find_max_val(root.left)
     rval: int = find_max_val(root.right)
