@@ -11,4 +11,4 @@
 ### Односвязный список
 - [single-linked list](https://github.com/ArslanYadov/utilities/blob/main/single_linked_list/list_node.py)
 ### Бинарные деревья
-- [binary tree](https://github.com/ArslanYadov/utilities/blob/main/binary_trees/find_max_val.py)
+- [binary tree](https://github.com/ArslanYadov/utilities/tree/main/binary_trees)
