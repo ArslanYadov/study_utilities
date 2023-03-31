@@ -2,7 +2,7 @@ from binary_tree_model import Node
 
 
 def searching_key(root: Node, key: int) -> bool:
-    """Поиск ключа в дереве."""
+    """Поиск ключа в бинарном дереве поиска."""
     if not root:
         return False
     if key == root.value:
