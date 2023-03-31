@@ -19,6 +19,6 @@ if __name__ == '__main__':
     data: tuple = (5, 3, 1, 4, 8, 6)
     for val in data:
         root.insert(val)
-    
+
     assert searching_key(root, 4)
     assert not searching_key(root, 2)
