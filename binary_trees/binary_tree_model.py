@@ -8,7 +8,7 @@ class Node:
         self.value = value
         self.left = left
         self.right = right
-    
+
     def find_min(self) -> Node:
         """Поиск минимального узла."""
         if not self.left:
@@ -20,7 +20,7 @@ class Node:
         if not self.right:
             return self
         return self.right.find_max()
-    
+
     def remove(self, key) -> Node:
         """Удаление узла из дерева."""
         if not self:
@@ -31,11 +31,11 @@ class Node:
 
         elif key > self.value:
             self.right = self.right.remove(key)
-        
+
         elif self.left and self.right:
             self.value = self.right.find_min().value
             self.right = self.right.remove(self.value)
-        
+
         else:
             if self.left:
                 self = self.left
@@ -45,7 +45,6 @@ class Node:
                 self = None
 
         return self
-
 
     def insert(self, key) -> None:
         """Вставка нового узла в дерево."""
@@ -65,7 +64,7 @@ class Node:
                 self.right.insert(key)
                 return
             self.right = Node(key)
-    
+
 
 if __name__ == '__main__':
     from searching_key import searching_key
@@ -75,7 +74,6 @@ if __name__ == '__main__':
 
     for key in keys:
         root.insert(key)
-    
-    root = root.remove(3)
 
+    root = root.remove(3)
     assert not searching_key(root, 3)
