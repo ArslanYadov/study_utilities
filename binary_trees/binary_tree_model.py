@@ -12,9 +12,6 @@ class Node:
             self.value = value
             return
 
-        if value == self.value:
-            return
-
         if value < self.value:
             if self.left:
                 self.left.insert(value)
@@ -22,7 +19,8 @@ class Node:
             self.left = Node(value)
             return
 
-        if self.right:
-            self.right.insert(value)
-            return
-        self.right = Node(value)
+        if value >= self.value:
+            if self.right:
+                self.right.insert(value)
+                return
+            self.right = Node(value)
