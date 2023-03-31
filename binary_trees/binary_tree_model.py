@@ -24,3 +24,15 @@ class Node:
                 self.right.insert(value)
                 return
             self.right = Node(value)
+    
+    def find_min(self):
+        """Поиск минимального узла."""
+        if not self.left:
+            return self
+        return self.left.find_min()
+
+    def find_max(self):
+        """Поиск максимального узла."""
+        if not self.right:
+            return self
+        return self.right.find_max()
