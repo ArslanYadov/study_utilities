@@ -20,7 +20,26 @@ class Node:
         if not self.right:
             return self
         return self.right.find_max()
+    
+    def insert(self, key) -> None:
+        """Вставка нового узла в дерево."""
+        if not self.value:
+            self.value = key
+            return
 
+        if key < self.value:
+            if self.left:
+                self.left.insert(key)
+                return
+            self.left = Node(key)
+            return
+
+        if key >= self.value:
+            if self.right:
+                self.right.insert(key)
+                return
+            self.right = Node(key)
+    
     def remove(self, key) -> Node:
         """Удаление узла из дерева."""
         if not self:
@@ -46,24 +65,12 @@ class Node:
 
         return self
 
-    def insert(self, key) -> None:
-        """Вставка нового узла в дерево."""
-        if not self.value:
-            self.value = key
-            return
 
-        if key < self.value:
-            if self.left:
-                self.left.insert(key)
-                return
-            self.left = Node(key)
-            return
-
-        if key >= self.value:
-            if self.right:
-                self.right.insert(key)
-                return
-            self.right = Node(key)
+def height(root: Node) -> int:
+    """Функция вычисления высоты дерева."""
+    if not root:
+        return 0
+    return max(height(root.left), height(root.right)) + 1
 
 
 if __name__ == '__main__':
@@ -77,3 +84,4 @@ if __name__ == '__main__':
 
     root = root.remove(3)
     assert not searching_key(root, 3)
+    assert height(root) == 4
