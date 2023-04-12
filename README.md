@@ -11,4 +11,5 @@
 ### Односвязный список
 - [single-linked list](https://github.com/ArslanYadov/utilities/blob/main/single_linked_list/list_node.py)
 ### Сортировки
-- [sorts](https://github.com/ArslanYadov/utilities/tree/main/sorts_type)
+- [fast sorts](https://github.com/ArslanYadov/utilities/tree/main/sorts_type/fast_sorts)
+- [slow sorts](https://github.com/ArslanYadov/utilities/tree/main/sorts_type/quadratic_sorts)
