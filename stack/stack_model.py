@@ -37,5 +37,5 @@ if __name__ == '__main__':
 
         assert stack.is_empty()
 
-    stack: Stack = Stack()    
+    stack: Stack = Stack()
     test_cases(stack)
