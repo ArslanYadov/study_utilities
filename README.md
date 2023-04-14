@@ -13,3 +13,5 @@
 ### Сортировки
 - [fast sorts](https://github.com/ArslanYadov/utilities/tree/main/sorts_type/fast_sorts)
 - [slow sorts](https://github.com/ArslanYadov/utilities/tree/main/sorts_type/quadratic_sorts)
+### Стек
+- [simple stack model](https://github.com/ArslanYadov/utilities/tree/main/stack)
