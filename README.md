@@ -8,6 +8,8 @@
 - [respone status code decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/check_status.py)
 ### Конвертеры
 - [convert to pdf](https://github.com/ArslanYadov/utilities/blob/main/convert2/pdf/html2pdf.py) via [**pdfkit**](https://github.com/JazzCore/python-pdfkit)
+### Куча
+- [heap model](https://github.com/ArslanYadov/utilities/tree/main/heap)
 ### Односвязный список
 - [single-linked list](https://github.com/ArslanYadov/utilities/blob/main/single_linked_list/list_node.py)
 ### Сортировки
