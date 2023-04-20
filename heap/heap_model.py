@@ -37,6 +37,7 @@ class Heap:
             if i == j:
                 break
             self.values[i], self.values[j] = self.values[j], self.values[i]
+            i = j
 
     def pop_min(self) -> Any:
         """
