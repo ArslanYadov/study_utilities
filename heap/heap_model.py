@@ -15,6 +15,7 @@ class Heap:
             self.values[i], self.values[(i - 1) // 2] = (
                 self.values[(i - 1) // 2], self.values[i]
             )
+            i = (i - 1) // 2
 
     def push_back(self, item: Any) -> None:
         """Вставка элемента в конец, с дальнейшим просеиванием."""
