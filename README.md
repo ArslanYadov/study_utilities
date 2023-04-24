@@ -2,6 +2,8 @@
 Тут собраны полезные примеры.
 ### Бинарные деревья
 - [binary tree](https://github.com/ArslanYadov/utilities/tree/main/binary_trees)
+### Графы
+- [graph](https://github.com/ArslanYadov/utilities/tree/main/graph)
 ### Декораторы
 - [benchmark decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/benchmark.py)
 - [logging decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/logit_decorator.py)
