@@ -1,4 +1,4 @@
-def merge(alist: list, blist: list) -> list:
+def merge(left: list, right: list) -> list:
     """
     Слияние отсортированных списков.
     ---
@@ -8,31 +8,27 @@ def merge(alist: list, blist: list) -> list:
     Возвращаемое значение:
         - цельный список.
     """
-    merge_list: list = [0] * (len(alist) + len(blist))
+    buffer: list = []
     i: int = 0
     j: int = 0
-    k: int = 0
 
-    while i < len(alist) and j < len(blist):
-        if alist[i] <= blist[j]:
-            merge_list[k] = alist[i]
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            buffer.append(left[i])
             i += 1
         else:
-            merge_list[k] = blist[j]
+            buffer.append(right[j])
             j += 1
-        k += 1
 
-    while i < len(alist):
-        merge_list[k] = alist[i]
+    while i < len(left):
+        buffer.append(left[i])
         i += 1
-        k += 1
 
-    while j < len(blist):
-        merge_list[k] = blist[j]
+    while j < len(right):
+        buffer.append(right[j])
         j += 1
-        k += 1
 
-    return merge_list
+    return buffer
 
 
 def merge_sort(alist: list) -> None:
