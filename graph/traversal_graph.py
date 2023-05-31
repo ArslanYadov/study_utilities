@@ -1,29 +1,28 @@
 from collections import deque
+from typing import Callable
 
 
-def bfs(graph: dict, start_vertex: int, destination: int) -> int:
+def bfs(graph: dict, start_vertex: int, visited: set) -> None:
     """
     Обход графа в ширину.
     ---
     Аргументы:
-        - граф, начальная вершина и конечная вершина.
+        - граф, стартовая вершина и множество посещенных вершин.
     ---
     Возвращаемое значение:
-        - количество ребер от начальной вершины до конечной.
+        - None, т.к. происходит только обход графа.
     ---
     Асимптотика: O(V + E), где V - множество вершин,
     а E - множество ребер соседних вершин (v1, v2, ..., vn).
     """
-    distance: list = [None] * len(graph)
-    distance[start_vertex] = 0
+    visited.add(start_vertex)
     queue: deque = deque([start_vertex])
     while queue:
         current_vertex: int = queue.popleft()
         for neighbour in graph[current_vertex]:
-            if distance[neighbour] is None:
-                distance[neighbour] = distance[current_vertex] + 1
+            if neighbour not in visited:
+                visited.add(neighbour)
                 queue.append(neighbour)
-    return distance[destination]
 
 
 def dfs(graph: dict, vertex: int, visited: set) -> None:
@@ -44,22 +43,31 @@ def dfs(graph: dict, vertex: int, visited: set) -> None:
             dfs(graph, neighbour, visited)
 
 
-def count_components_dfs(graph: dict, visited: set):
+def count_components(graph: dict, visited: set, traversal: Callable) -> int:
     """
-    Подсчет компонент связности для графа,
-    используя обход графа в глубину.
+    Подсчет компонент связности для графа.
+    На выбор доступно два режима обхода:
+        - Depth-First Search (DFS) - обход в глубину;
+        - Breadth-First Search (BFS) - обход в ширину.
+    ---
+    Аргументы:
+        - граф в виде списка смежности,
+        множество посещенных вершин и метод обхода для графа.
+    ---
+    Возвращаемое значение:
+        - количество компонент связности графа.
     """
     count: int = 0
     for vertex in graph:
         if vertex not in visited:
-            dfs(graph, vertex, visited)
+            traversal(graph, vertex, visited)
             count += 1
     return count
 
 
 if __name__ == '__main__':
 
-    graph1: dict = {
+    graph_0: dict = {
         0: {2},
         1: {4},
         2: {0, 3},
@@ -68,10 +76,8 @@ if __name__ == '__main__':
         5: {2, 3},
         6: set(),
     }
-    visited: set = set()
-    assert count_components_dfs(graph1, visited) == 3
 
-    graph2: dict = {
+    graph_1: dict = {
         0: {1, 2},              # A
         1: {0, 3, 4},           # B
         2: {0, 4},              # C
@@ -86,7 +92,13 @@ if __name__ == '__main__':
         11: {8, 9}              # L
     }
 
-    assert bfs(graph2, 0, 11) == 5
+    test_cases: tuple = (
+        (dfs, graph_0, 3),
+        (bfs, graph_0, 3),
+        (dfs, graph_1, 1),
+        (bfs, graph_1, 1),
+    )
 
-    visited: set = set()
-    assert count_components_dfs(graph2, visited) == 1
+    for traversal_method, graph, expected_components_number in test_cases:
+        visited: set = set()
+        assert count_components(graph, visited, traversal_method) == expected_components_number
