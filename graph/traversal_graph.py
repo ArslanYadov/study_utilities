@@ -101,4 +101,5 @@ if __name__ == '__main__':
 
     for traversal_method, graph, expected_components_number in test_cases:
         visited: set = set()
-        assert count_components(graph, visited, traversal_method) == expected_components_number
+        components: int = count_components(graph, visited, traversal_method)
+        assert components == expected_components_number
