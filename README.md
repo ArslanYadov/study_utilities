@@ -4,6 +4,8 @@
 - [binary tree](https://github.com/ArslanYadov/utilities/tree/main/binary_trees)
 ### Графы
 - [graph](https://github.com/ArslanYadov/utilities/tree/main/graph) (not graph model, just working with graph as dict by using some algos)
+### Двусторонняя очередь
+- [deque as special case of doubly linked list](https://github.com/ArslanYadov/utilities/tree/main/double_linked_list)
 ### Декораторы
 - [benchmark decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/benchmark.py)
 - [logging decorator](https://github.com/ArslanYadov/utilities/blob/main/decorators/logit_decorator.py)
