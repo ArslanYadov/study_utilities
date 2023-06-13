@@ -62,8 +62,18 @@ class Deque:
 
     def pop_back(self) -> Any:
         """Pop item from end of deque."""
-        ...
-    
+        if self.is_empty():
+            raise IndexError('pop from an empty deque')
+
+        node: Node = self.__tail.prev
+        item = self.__tail.key
+        self.__tail = node
+        if self.__tail:
+            self.__tail.next = None
+        self.__length -= 1
+        return item
+
     def pop_front(self) -> Any:
         """Pop item from front of deque."""
-        ...
+        if self.is_empty():
+            raise IndexError('pop from an empty deque')
