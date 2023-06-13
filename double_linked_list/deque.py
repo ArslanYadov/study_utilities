@@ -59,3 +59,11 @@ class Deque:
             self.__head = self.__tail = Node(item)
             self.__length += 1
             return
+
+    def pop_back(self) -> Any:
+        """Pop item from end of deque."""
+        ...
+    
+    def pop_front(self) -> Any:
+        """Pop item from front of deque."""
+        ...
