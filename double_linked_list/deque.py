@@ -1,4 +1,5 @@
 from node import Node
+from typing import Any
 
 
 class Deque:
@@ -21,7 +22,19 @@ class Deque:
         nodes: list = []
         node: Node = self.__head
         while node:
-            nodes.append(node)
+            nodes.append(node.key)
             node = node.next
 
-        return ', '.join(str(node) for node in nodes)
+        return ', '.join(str(key) for key in nodes)
+
+    def push_back(self, item: Any) -> None:
+        """Push item in the end of deque."""
+        if not self.__head or not self.__tail or self.__length == 0:
+            self.__head = self.__tail = Node(item)
+            self.__length += 1
+            return
+
+        node: Node = Node(item, self.__tail)
+        self.__tail.next = node
+        self.__tail = self.__tail.next
+        self.__length += 1
