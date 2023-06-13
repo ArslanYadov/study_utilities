@@ -39,6 +39,7 @@ class DequeTest(unittest.TestCase):
 
         for expected in items[::-1]:
             self.assertEqual(self.deque.pop_back(), expected)
+        self.assertTrue(self.deque.is_empty())
 
     def test_pop_item_from_front(self) -> None:
         """Testing pop item from the front of deque."""
@@ -49,6 +50,7 @@ class DequeTest(unittest.TestCase):
 
         for expected in items:
             self.assertEqual(self.deque.pop_front(), expected)
+        self.assertTrue(self.deque.is_empty())
 
 
 if __name__ == '__main__':
