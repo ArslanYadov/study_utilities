@@ -10,13 +10,17 @@ class Deque:
         self.__tail: Node | None = None
         self.__length: int = 0
 
+    def is_empty(self) -> bool:
+        """Return true if deque is empty."""
+        return not self.__head or not self.__tail or self.__length == 0
+
     def __len__(self) -> int:
         """Return quantity of nodes in deque."""
         return self.__length
 
     def __str__(self) -> str:
         """View all nodes in deque."""
-        if not self.__head or not self.__tail or self.__length == 0:
+        if self.is_empty():
             return '{}()'.format(type(self).__name__)
 
         nodes: list = []
@@ -29,12 +33,24 @@ class Deque:
 
     def push_back(self, item: Any) -> None:
         """Push item in the end of deque."""
-        if not self.__head or not self.__tail or self.__length == 0:
-            self.__head = self.__tail = Node(item)
-            self.__length += 1
+        if self.is_empty():
+            self.__push(item)
             return
 
         node: Node = Node(item, self.__tail)
         self.__tail.next = node
         self.__tail = self.__tail.next
         self.__length += 1
+
+    def push_front(self, item: Any) -> None:
+        """Push item in front of deque."""
+        if self.is_empty():
+            self.__push(item)
+            return
+
+    def __push(self, item: Any) -> None:
+        """Push item in empty deque."""
+        if not self.__head or not self.__tail:
+            self.__head = self.__tail = Node(item)
+            self.__length += 1
+            return
