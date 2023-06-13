@@ -10,10 +10,6 @@ class Deque:
         self.__tail: Node | None = None
         self.__length: int = 0
 
-    def is_empty(self) -> bool:
-        """Return true if deque is empty."""
-        return not self.__head or not self.__tail or self.__length == 0
-
     def __len__(self) -> int:
         """Return quantity of nodes in deque."""
         return self.__length
@@ -31,6 +27,10 @@ class Deque:
 
         return ', '.join(str(key) for key in nodes)
 
+    def is_empty(self) -> bool:
+        """Return true if deque is empty."""
+        return not self.__head or not self.__tail or self.__length == 0
+
     def push_back(self, item: Any) -> None:
         """Push item in the end of deque."""
         if self.is_empty():
@@ -47,6 +47,11 @@ class Deque:
         if self.is_empty():
             self.__push(item)
             return
+
+        node: Node = Node(item, None, self.__head)
+        self.__head.prev = node
+        self.__head = self.__head.prev
+        self.__length += 1
 
     def __push(self, item: Any) -> None:
         """Push item in empty deque."""
