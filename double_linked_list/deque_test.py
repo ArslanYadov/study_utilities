@@ -1,0 +1,25 @@
+import unittest
+from deque import Deque
+
+
+class DequeTest(unittest.TestCase):
+    """Test module for Deque model."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.deque: Deque = Deque()
+
+    def test_deque_is_empty(self):
+        """Testing for empty deque."""
+        self.assertEqual(len(self.deque), 0)
+
+    def test_deque_length_after_push_back(self):
+        """Using push_back method for deque."""
+        for i in range(1, 11):
+            self.deque.push_back(i)
+        self.assertEqual(len(self.deque), 10)
+
+
+if __name__ == '__main__':
+
+    unittest.main()
