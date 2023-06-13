@@ -77,3 +77,11 @@ class Deque:
         """Pop item from front of deque."""
         if self.is_empty():
             raise IndexError('pop from an empty deque')
+
+        node: Node = self.__head.next
+        item = self.__head.key
+        self.__head = node
+        if self.__head:
+            self.__head.prev = None
+        self.__length -= 1
+        return item
