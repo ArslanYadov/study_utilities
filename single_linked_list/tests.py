@@ -48,6 +48,22 @@ class LinkedListTest(unittest.TestCase):
 
             self.assertEqual(self.linked_list.pop_back(), val)
         self.assertTrue(self.linked_list.is_empty())
+    
+    def test_pop_front(self) -> None:
+        """Тест удаления элемента из начала односвязного списка."""
+        words: list = 'spam ham eggs'.split()
+        self.linked_list.convert(words)
+
+        life_meaning: str = '42'
+        words.append(life_meaning)
+        self.linked_list.push_back(life_meaning)
+        
+        for word in words:
+            if self.linked_list.is_empty():
+                break
+
+            self.assertEqual(self.linked_list.pop_front(), word)
+        self.assertTrue(self.linked_list.is_empty())
 
 
 if __name__ == '__main__':
