@@ -15,7 +15,7 @@
 ### Куча
 - [heap model](https://github.com/ArslanYadov/utilities/tree/main/heap)
 ### Односвязный список
-- [single-linked list](https://github.com/ArslanYadov/utilities/blob/main/single_linked_list/list_node.py)
+- [single-linked list](https://github.com/ArslanYadov/utilities/tree/main/single_linked_list)
 ### Сортировки
 - [fast sorts](https://github.com/ArslanYadov/utilities/tree/main/sorts_type/fast_sorts)
 - [fast sort with heap method](https://github.com/ArslanYadov/utilities/blob/7e0dcd2b5a7da5ca8e4e58646e0d94ebb6dfbdc9/heap/heap_model.py#L63)
