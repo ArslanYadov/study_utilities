@@ -85,6 +85,16 @@ class LinkedList:
 
         self.__length -= 1
         return item
+    
+    def pop_front(self):
+        """Получение элемента из начала списка, с удалением узла."""
+        if self.is_empty():
+            raise IndexError('pop from empty linked list')
+
+        item = self.__head.value
+        self.__head = self.__head.next
+        self.__length -= 1
+        return item
 
     def __str__(self) -> str:
         if self.is_empty():
