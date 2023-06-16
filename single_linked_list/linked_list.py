@@ -1,3 +1,7 @@
+# TODO: 
+# 1. need pop_front and pop_back methods
+# 2. insert method
+# 3. test cases for testing linked list
 class Node:
     """Модель узла."""
 
