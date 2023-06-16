@@ -37,6 +37,18 @@ class LinkedListTest(unittest.TestCase):
         self.linked_list.push_front(item)
         self.assertEqual(len(self.linked_list), 1)
 
+    def test_pop_back(self) -> None:
+        """Тест удаления элемента из конца односвязного списка."""
+        values: list = list(range(1, 11))
+        self.linked_list.convert(values)
+
+        for val in reversed(values):
+            if self.linked_list.is_empty():
+                break
+
+            self.assertEqual(self.linked_list.pop_back(), val)
+        self.assertTrue(self.linked_list.is_empty())
+
 
 if __name__ == '__main__':
 
