@@ -1,4 +1,4 @@
-# TODO: 
+# TODO:
 # 1. need pop_front and pop_back methods
 # 2. insert method
 # 3. test cases for testing linked list
@@ -70,14 +70,20 @@ class LinkedList:
         """Получение элемента из конца списка, с удалением узла."""
         if self.is_empty():
             raise IndexError('pop from empty linked list')
-        
+
         node: Node = self.__head
         prev_node: Node | None = None
         while node.next:
             prev_node = node
             node = node.next
         item = node.value
-        prev_node.next = None
+
+        if prev_node:
+            prev_node.next = None
+        else:
+            self.__head = None
+
+        self.__length -= 1
         return item
 
     def __str__(self) -> str:
