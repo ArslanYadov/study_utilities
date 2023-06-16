@@ -66,6 +66,20 @@ class LinkedList:
         self.__length += 1
         return
 
+    def pop_back(self):
+        """Получение элемента из конца списка, с удалением узла."""
+        if self.is_empty():
+            raise IndexError('pop from empty linked list')
+        
+        node: Node = self.__head
+        prev_node: Node | None = None
+        while node.next:
+            prev_node = node
+            node = node.next
+        item = node.value
+        prev_node.next = None
+        return item
+
     def __str__(self) -> str:
         if self.is_empty():
             return '[]'
