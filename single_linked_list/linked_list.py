@@ -38,7 +38,12 @@ class LinkedList:
         return
 
     def insert(self, index, item) -> None:
-        """Вставка элемента по индексу в односвязный список."""
+        """
+        Вставка элемента в односвязный список до индекса.
+        Если индекс нулевой или отрицательный, то элемент идет в начало списка.
+        Если индекс превышает количество узлов в односвязном списке,
+        то элемент помещает в конец.
+        """
         if self.is_empty():
             self.__push(item)
             return
@@ -50,6 +55,14 @@ class LinkedList:
         if index >= len(self):
             self.push_back(item)
             return
+
+        node: Node = self[index - 1]
+        new_node: Node = Node(item)
+        if node.next:
+            new_node.next = node.next
+        node.next = new_node
+        self.__length += 1
+        return
 
     def push_back(self, item) -> None:
         """Вставка элемента в конец односвязного списка."""
