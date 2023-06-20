@@ -20,6 +20,13 @@ class LinkedList:
         """Проверка пустого списка."""
         return len(self) == 0 and not self.__head
 
+    def __check_index_type(self, index) -> None:
+        """Проверка является ли индекс целым числом."""
+        if not isinstance(index, int):
+            raise TypeError(
+                'linked list indices must be integers, not {}'.format(type(index).__name__)
+            )
+
     def __push(self, item) -> None:
         """Вставка элемента в пустой список."""
         self.__head = Node(item)
@@ -27,12 +34,12 @@ class LinkedList:
         return
 
     @property
-    def first(self) -> Node:
+    def first(self):
         """Возвращает значение первого узла из односвязного списка."""
         return self[0].value
 
     @property
-    def last(self) -> Node:
+    def last(self):
         """Возвращает значение последнего узла из односвязного списка."""
         return self[len(self) - 1].value
 
@@ -54,6 +61,8 @@ class LinkedList:
         Если индекс превышает количество узлов в односвязном списке,
         то элемент помещает в конец.
         """
+        self.__check_index_type(index)
+
         if self.is_empty():
             self.__push(item)
             return
@@ -142,6 +151,8 @@ class LinkedList:
 
     def __getitem__(self, index) -> Node:
         """Получение узла по индексу."""
+        self.__check_index_type(index)
+
         if self.is_empty() or index < 0 or index >= len(self):
             raise IndexError('linked list index out of range')
 
