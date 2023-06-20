@@ -48,7 +48,7 @@ class LinkedListTest(unittest.TestCase):
 
             self.assertEqual(self.linked_list.pop_back(), val)
         self.assertTrue(self.linked_list.is_empty())
-    
+
     def test_pop_front(self) -> None:
         """Тест удаления элемента из начала односвязного списка."""
         words: list = 'spam ham eggs'.split()
@@ -57,13 +57,22 @@ class LinkedListTest(unittest.TestCase):
         life_meaning: str = '42'
         words.append(life_meaning)
         self.linked_list.push_back(life_meaning)
-        
+
         for word in words:
             if self.linked_list.is_empty():
                 break
 
             self.assertEqual(self.linked_list.pop_front(), word)
         self.assertTrue(self.linked_list.is_empty())
+
+    def test_item_in_linked_list(self) -> None:
+        """Тест работы дандер метода __contains__: key in object."""
+        string: str = 'Nobody expects the Spanish Inquisition'
+        words: list = string.lower().split()
+        self.linked_list.convert(words)
+        for word in words:
+            self.assertIn(word, self.linked_list)
+        self.assertNotIn(42, self.linked_list)
 
 
 if __name__ == '__main__':
