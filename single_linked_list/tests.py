@@ -74,6 +74,13 @@ class LinkedListTest(unittest.TestCase):
             self.assertIn(word, self.linked_list)
         self.assertNotIn(42, self.linked_list)
 
+    def test_getitem_by_index(self) -> None:
+        """Тест получения узла по индексу."""
+        numbers: list = list(range(1, 11))
+        self.linked_list.convert(numbers)
+        for i in range(len(numbers)):
+            self.assertEqual(numbers[i], self.linked_list[i].value)
+
 
 if __name__ == '__main__':
 
