@@ -81,6 +81,26 @@ class LinkedListTest(unittest.TestCase):
         for i in range(len(numbers)):
             self.assertEqual(numbers[i], self.linked_list[i].value)
 
+    def test_insert_item_by_index(self) -> None:
+        """Тест вставки элемента по индексу."""
+        numbers: list = [1, 2, 4]
+        self.linked_list.convert(numbers)
+
+        expected: int = 3
+        self.assertNotIn(expected, self.linked_list)
+
+        self.linked_list.insert(2, 3)
+        self.assertEqual(expected, self.linked_list[2].value)
+
+        first: int = 0
+        last: int = 5
+        negative_index: int = -1
+        big_index: int = 1000
+        self.linked_list.insert(negative_index, first)
+        self.linked_list.insert(big_index, last)
+        self.assertEqual(first, self.linked_list.first)
+        self.assertEqual(last, self.linked_list.last)
+
 
 if __name__ == '__main__':
 
