@@ -16,10 +16,6 @@ class LinkedList:
         self.__head = None
         self.__length = 0
 
-    def __len__(self) -> int:
-        """Возвращает длину односвязного списка."""
-        return self.__length
-
     def is_empty(self) -> bool:
         """Проверка пустого списка."""
         return len(self) == 0 and not self.__head
@@ -94,6 +90,22 @@ class LinkedList:
         self.__head = self.__head.next
         self.__length -= 1
         return item
+
+    def __contains__(self, key) -> bool:
+        """Проверка находится ли ключ в односвязном списке."""
+        if self.is_empty():
+            return False
+
+        node: Node = self.__head
+        while node:
+            if key == node.value:
+                return True
+            node = node.next
+        return False
+
+    def __len__(self) -> int:
+        """Возвращает длину односвязного списка."""
+        return self.__length
 
     def __str__(self) -> str:
         if self.is_empty():
