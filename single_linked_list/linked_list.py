@@ -129,6 +129,7 @@ class LinkedList:
                 return node
             node = node.next
             it += 1
+        return node
 
     def __len__(self) -> int:
         """Возвращает длину односвязного списка."""
