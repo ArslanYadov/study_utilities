@@ -1,5 +1,5 @@
 # TODO:
-# 1. insert method
+# 1. reverse linked list method
 # 2. test cases for testing linked list
 class Node:
     """Модель узла."""
