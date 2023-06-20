@@ -26,6 +26,16 @@ class LinkedList:
         self.__length += 1
         return
 
+    @property
+    def first(self) -> Node:
+        """Возвращает значение первого узла из односвязного списка."""
+        return self[0].value
+
+    @property
+    def last(self) -> Node:
+        """Возвращает значение последнего узла из односвязного списка."""
+        return self[len(self) - 1].value
+
     def convert(self, iterable, reverse=False) -> None:
         """Конвертация итерируемого объекта в односвязный список."""
         if not reverse:
