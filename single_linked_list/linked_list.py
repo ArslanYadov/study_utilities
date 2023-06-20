@@ -37,6 +37,20 @@ class LinkedList:
             self.push_front(item)
         return
 
+    def insert(self, index, item) -> None:
+        """Вставка элемента по индексу в односвязный список."""
+        if self.is_empty():
+            self.__push(item)
+            return
+
+        if index <= 0:
+            self.push_front(item)
+            return
+
+        if index >= len(self):
+            self.push_back(item)
+            return
+
     def push_back(self, item) -> None:
         """Вставка элемента в конец односвязного списка."""
         if self.is_empty():
@@ -102,6 +116,19 @@ class LinkedList:
                 return True
             node = node.next
         return False
+
+    def __getitem__(self, index) -> Node:
+        """Получение узла по индексу."""
+        if self.is_empty() or index < 0 or index >= len(self):
+            raise IndexError('linked list index out of range')
+
+        it: int = 0
+        node: Node = self.__head
+        while node.next:
+            if it == index:
+                return node
+            node = node.next
+            it += 1
 
     def __len__(self) -> int:
         """Возвращает длину односвязного списка."""
