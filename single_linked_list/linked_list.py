@@ -1,6 +1,3 @@
-# TODO:
-# 1. reverse linked list method
-# 2. test cases for testing linked list
 class Node:
     """Модель узла."""
 
@@ -12,9 +9,16 @@ class Node:
 class LinkedList:
     """Модель односвязного списка."""
 
-    def __init__(self) -> None:
+    def __init__(self, iterable=None) -> None:
         self.__head = None
         self.__length = 0
+
+        if iterable:
+            if not hasattr(iterable, '__iter__'):
+                raise TypeError(
+                    '\'%s\' object is not iterable' % type(iterable).__name__
+                )
+            self.convert(iterable)
 
     def is_empty(self) -> bool:
         """Проверка пустого списка."""
@@ -23,9 +27,11 @@ class LinkedList:
     def __check_index_type(self, index) -> None:
         """Проверка является ли индекс целым числом."""
         if not isinstance(index, int):
-            raise TypeError(
-                'linked list indices must be integers, not {}'.format(type(index).__name__)
-            )
+            error_message: str = (
+                    'linked list indices must be integers, '
+                    'not %s' % type(index).__name__
+                )
+            raise TypeError(error_message)
 
     def __push(self, item) -> None:
         """Вставка элемента в пустой список."""
@@ -136,6 +142,17 @@ class LinkedList:
         self.__head = self.__head.next
         self.__length -= 1
         return item
+
+    def reverse(self) -> None:
+        """Разворачивает односвязный список."""
+        if self.is_empty():
+            return
+
+        node: Node | None = None
+        while self.__head:
+            node = Node(self.__head.value, node)
+            self.__head = self.__head.next
+        self.__head = node
 
     def __contains__(self, key) -> bool:
         """Проверка находится ли ключ в односвязном списке."""
