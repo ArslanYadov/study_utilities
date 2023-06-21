@@ -109,6 +109,18 @@ class LinkedListTest(unittest.TestCase):
         last: int = self.linked_list.last
         self.assertEqual(first, last)
 
+    def test_create_from_iterable_init(self) -> None:
+        """
+        Тест создания экземпляра через передачу
+        итерируемого объекта в конструктор класса.
+        """
+        sequence: range = range(1, 11)
+        llist: LinkedList = LinkedList(sequence)
+        self.assertEqual(len(sequence), len(llist))
+
+        for i, val in enumerate(sequence):
+            self.assertEqual(val, llist[i].value)
+
 
 if __name__ == '__main__':
 
