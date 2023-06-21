@@ -101,6 +101,14 @@ class LinkedListTest(unittest.TestCase):
         self.assertEqual(first, self.linked_list.first)
         self.assertEqual(last, self.linked_list.last)
 
+    def test_reverse_method(self) -> None:
+        """Тест разворота односвязного списка."""
+        self.linked_list.convert(range(1, 6))
+        first: int = self.linked_list.first
+        self.linked_list.reverse()
+        last: int = self.linked_list.last
+        self.assertEqual(first, last)
+
 
 if __name__ == '__main__':
 
