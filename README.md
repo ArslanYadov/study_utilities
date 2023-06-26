@@ -1,5 +1,5 @@
 # utilities
-Тут собраны полезные примеры.
+Структуры данных/библиотеки/листинги и прочие учебные примеры
 ### Бинарные деревья
 - [binary tree](https://github.com/ArslanYadov/utilities/tree/main/binary_trees)
 ### Графы
