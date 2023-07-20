@@ -12,7 +12,7 @@ def async_timer(func):
         finally:
             total: float = time.perf_counter() - start
             print(
-                'Затраченное время на выполнение [{}] составило: {:.4f}'.format(
+                'Затраченное время на выполнение [{}] составило: {:.4f} с.'.format(
                     func.__name__.upper(), total
                 )
             )
