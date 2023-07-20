@@ -2,6 +2,7 @@ import aiohttp
 import asyncio
 
 from async_decorators import async_timer
+from conf import AMOUNT_REQUESTS, REQUEST_URL
 
 
 async def get_response_status(session: aiohttp.ClientSession, url: str) -> int:
@@ -13,9 +14,7 @@ async def get_response_status(session: aiohttp.ClientSession, url: str) -> int:
 @async_timer
 async def main() -> None:
     """Асинхронно делаем множество запросов к указанному URL."""
-    amount_requests: int = 1000
-    request_url: str = 'https://www.example.com'
-    urls: list = [request_url for _ in range(amount_requests)]
+    urls: list = [REQUEST_URL for _ in range(AMOUNT_REQUESTS)]
     async with aiohttp.ClientSession() as session:
         coros: list = [
             get_response_status(session, url)
