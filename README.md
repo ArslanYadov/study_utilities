@@ -3,6 +3,7 @@
 ### Асинхронность
 - [async requests by aiohttp](https://github.com/ArslanYadov/study_utilities/blob/main/async/aiohttp_requests.py)
 - [async requests by pool of threads](https://github.com/ArslanYadov/study_utilities/blob/main/async/threads_requests.py)
+- [Non-blocking input data with cbreak terminal](https://github.com/ArslanYadov/study_utilities/tree/main/async_stream_handler)
 ### Бинарные деревья
 - [binary tree](https://github.com/ArslanYadov/utilities/tree/main/binary_trees)
 ### Графы
