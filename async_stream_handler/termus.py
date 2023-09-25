@@ -6,21 +6,20 @@ import termios
 import tty
 
 
-def cbrake_mode(file_descriptor=sys.stdin) -> None:
-    """Переключить терминал на cbrake режим."""
-    tty.setcbreak(file_descriptor)
+class Terminal:
 
+    def cbrake_mode(self, file_descriptor=sys.stdin) -> None:
+        """Переключить терминал на cbrake режим."""
+        tty.setcbreak(file_descriptor)
 
-def save_terminal_state(file_descriptor=sys.stdin) -> list:
-    """Сохраняет состояние терминала."""
-    return termios.tcgetattr(file_descriptor)
+    def save_state(self, file_descriptor=sys.stdin) -> list:
+        """Сохраняет состояние терминала."""
+        return termios.tcgetattr(file_descriptor)
 
+    def restore_state(self, old_attrs, file_descriptor=sys.stdin) -> None:
+        """Восстанавливает состояние терминала."""
+        termios.tcsetattr(file_descriptor, termios.TCSADRAIN, old_attrs)
 
-def restore_terminal_state(old_attrs, file_descriptor=sys.stdin) -> None:
-    """Восстанавливает состояние терминала."""
-    termios.tcsetattr(file_descriptor, termios.TCSADRAIN, old_attrs)
-
-
-def clear() -> None:
-    """Очищает терминал."""
-    os.system('clear')
+    def clear(self) -> None:
+        """Очищает терминал."""
+        os.system('clear')

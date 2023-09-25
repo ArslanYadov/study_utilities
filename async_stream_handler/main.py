@@ -1,21 +1,22 @@
 import asyncio
 
-import cursor_controls as cursor
-import termus as terminal
+from cursor_controls import Cursor
 from editors import redraw_output
 from readers import create_stdin_reader, read_line
 from storages import MessageStore
+from termus import Terminal
 from time_utils import sleeper
 
 
 async def main() -> None:
-    old_terminal: list = terminal.save_terminal_state()
+    terminal: Terminal = Terminal()
+    old_terminal: list = terminal.save_state()
 
     try:
         terminal.cbrake_mode()
         terminal.clear()
 
-        rows: int = cursor.move_cursor_to_bottom()
+        rows: int = Cursor.move_to_bottom()
 
         messages: MessageStore = MessageStore(redraw_output, rows - 1)
 
@@ -36,7 +37,7 @@ async def main() -> None:
                 await messages.append('[ERROR] Use numeric values <q to quit>')
 
     finally:
-        terminal.restore_terminal_state(old_terminal)
+        terminal.restore_state(old_terminal)
 
 
 if __name__ == '__main__':

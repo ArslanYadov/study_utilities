@@ -3,7 +3,7 @@ import sys
 from collections import deque
 
 from editors import remove_char
-from cursor_controls import clear_line
+from cursor_controls import Cursor
 from storages import MessageStore
 
 
@@ -40,7 +40,7 @@ async def read_line(
 
         sys.stdout.flush()
 
-    clear_line()
+    Cursor.clear_line()
     return b''.join(buffer).decode()
 
 
